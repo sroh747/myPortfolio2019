@@ -1,0 +1,568 @@
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>My profile</title>
+	<meta name="description" content="E-portfolio">
+	<meta name="author"
+		content="Sebastien Roh | Digital transformation | turning data into insights | Business Intelligence | digital marketing | web savvy | global mindset">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="icon" href="img/favicon.ico">
+
+	<link rel="stylesheet" href="bootstrap-4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="reveal/css/reveal.css">
+	<link rel="stylesheet" href="reveal/css/theme/blood.css" id="theme"> <!-- moon.css -->
+	<!--<link rel="stylesheet" href="custom2.css">-->
+
+	<link href="fontawesome-free-5.9.0-web/css/all.css" rel="stylesheet">
+
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+
+	<script src="reveal/lib/js/html5shiv.js"></script>
+	<script src="js/jquery/jquery-3.3.1.min.js" type="text/javascript"></script>
+
+
+	<style type="text/css" media="screen">
+		/*   rgba(77, 126, 101, 0.9);   GREEN   */
+		/*   rgba(1, 87, 155, 0.9);     BLUE    */
+
+
+		/* /// Devices sizes   */
+
+		/* iphone 320 x 480 */
+		#viewport.iphone {
+			border-top: 45px solid;
+			border-right: 25px solid;
+			border-bottom: 25px solid;
+			border-left: 25px solid;
+			border-radius: 20px;
+			color: #000000;
+
+		}
+
+		.iphone,
+		.iphone iframe {
+
+			width: 350px;
+			height: 500px;
+		}
+	</style>
+
+
+
+
+
+	<style type="text/css">
+		.reveal .commentsMade {
+			font-size: 20px;
+			text-align: center;
+			color: #333;
+		}
+
+		.reveal .commentsMadeCenter {
+			font-size: 20px;
+			text-align: center;
+			color: #333;
+		}
+
+		.reveal .media-body {
+			background-color: #F6F6F6;
+			/* #00925B;
+			-->< !--width: 250px;
+			*/height: 300px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			text-align: center;
+			padding: 30px;
+			margin: 10px;
+		}
+	</style>
+
+
+	<!-- ************************************************************-->
+	<!-- ********** SCRIPT MOBILE-FIRST/RESPONSIVE iFrame ***********-->
+	<!-- ************************************************************-->
+	<script type="text/javascript">
+		$(function () {
+
+
+			$('#iphone').click(function () {
+				$("#screen-options li").removeClass("active");
+				$(this).addClass("active");
+				$('#viewport').attr('class', 'iphone');
+				$('#device-detail').attr('class', 'iphone-detail');
+			});
+
+			$('#iphone-l').click(function () {
+				$("#screen-options li").removeClass("active");
+				$(this).addClass("active");
+				$('#viewport').attr('class', 'iphone-l');
+				$('#device-detail').attr('class', 'iphone-l-detail');
+			});
+
+			$('#ipad').click(function () {
+				$("#screen-options li").removeClass("active");
+				$(this).addClass("active");
+				$('#viewport').attr('class', 'ipad');
+				$('#device-detail').attr('class', 'ipad-detail');
+			});
+
+			$('#ipad-l').click(function () {
+				$("#screen-options li").removeClass("active");
+				$(this).addClass("active");
+				$('#viewport').attr('class', 'ipad-l');
+				$('#device-detail').attr('class', 'ipad-l-detail');
+			});
+
+			$('#desktop').click(function () {
+				$("#screen-options li").removeClass("active");
+				$(this).addClass("active");
+				$('#viewport').attr('class', 'desktop');
+				$('#device-detail').attr('class', 'desktop-detail');
+			});
+
+			///get url from form field
+			function updateframe() {
+				var url = $("#getURL").val();
+				//alert(url);
+
+				/// check for http
+				if ($("#getURL").val().match(/^http/)) {
+					$('#displayframe').attr('src', url);
+				}
+				else {
+					validURL = 'http://' + url;
+					//alert(validURL);
+					$('#displayframe').attr('src', validURL);
+					return false;
+				}
+
+			}
+
+			/// form actions
+			$("#button").click(function () {
+				updateframe();
+				RandomLink();
+			});
+
+			$('#getURL').keypress(function (e) {
+				if (e.which == 13) {
+					updateframe();
+				}
+			});
+
+			$(function () {
+				$('input[type=text]').focus(function () {
+					$(this).val('')
+				});
+
+			});
+
+
+			//// Check for url in url
+			var givenURL = (RegExp('url=' + '(.+?)(&|$)').exec(location.search) || [, null])[1];
+			if (givenURL == null) {
+				////set-up random url
+				base = "http://";
+				var urls = ["www.txt.ch"];
+				var randomURL = urls[Math.floor(Math.random() * urls.length)];
+				var randomhttpURL = (base + randomURL);
+				$('#displayframe').attr('src', randomhttpURL);
+				$('#getURL').attr('value', randomURL);
+			} else {
+				$('#getURL').attr('value', givenURL);
+				$('#displayframe').attr('src', givenURL);
+			}
+
+
+		});
+	</script>
+
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-41369487-3"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-41369487-3');
+	</script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+
+			<section id="title1"
+				data-background-video="videos/coverr-bali-sunset-1563873075061/coverr-bali-sunset-1563873075061.mp4"
+				data-background-color="#01579B" type="video/webm" data-background-video-loop data-background-video-muted
+				data-background-opacity="0.5">
+				<div style="float:top;height:80%;text-align: left;">
+					<!--<small><i class="fas fa-map-marker-alt"></i>&nbsp;Australia</small>&nbsp;&nbsp;&nbsp;-->
+					<small><i class="fas fa-envelope"></i>&nbsp;<a style="color:#fff"
+							href="mailto:sebastien.ch@gmail.com">sebastien.ch@gmail.com</a></small>&nbsp;&nbsp;&nbsp;
+					<small><i class="fas fa-phone-square-alt"></i>&nbsp;+41 79 266 8108</small>&nbsp;&nbsp;&nbsp;
+					<small><i class="fas fa-id-card"></i>&nbsp;Swiss citizen</small>
+					<br />
+					<small><i class="fab fa-linkedin"></i>&nbsp;<a target="_blank" style="color:#fff"
+							href="https://linkedin.com/in/sebastienroh">linkedin.com/in/sebastienroh</a></small>
+					<!--<br/><small><a target="_blank" style="color:#fff" href="https://linkedin.com/in/sebastienroh"><i class="fab fa-linkedin"></i>&nbsp;linkedin.com/in/sebastienroh</a></small>-->
+				</div>
+				<br clear="all">
+				<div style="float:bottom;height:20%;padding-bottom:0px;text-align: left;">
+					<h2>Sebastien Roh</h2>
+					<!--<p>
+							<code>data-background="#dddddd"</code>
+						</p>-->
+					<p>
+						Digital transformation | turning data into insights | Business Intelligence | digital marketing
+						| web savvy | global mindset
+
+					</p>
+				</div>
+			</section>
+
+
+			<section data-background="#01579B" data-background-transition="fade-in convex-out"
+				class="has-light-background present" style="top: 38.5px; display: block;">
+				<!--<h2>My portfolio</h2>-->
+				<p>
+					Please allow me to walk you through some of my recent realisations and achievements...
+				</p>
+			</section>
+
+
+			<!--<section data-background="#4d7e65" class="has-light-background present" style="top: 38.5px; display: block;">
+					<h2>Slide Backgrounds greenish</h2>
+					<p>
+						Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
+					</p>
+				</section>		-->
+
+
+			<!--<section data-background="#b5533c" class="has-light-background present" style="top: 38.5px; display: block;">
+					<h2>Slide Backgrounds reddish</h2>
+					<p>
+						Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
+					</p>
+				</section>	-->
+
+			<section data-background-interactive data-background="#01579B" data-background-opacity="0.4">
+				<br clear="all">
+
+				<h2>Exploring large multivariate datasets</h2>
+				<div style="background-color: rgba(0, 0, 0, 0.6); color: #fff; padding: 20px;">
+					Case study: Airlines on-time performance at Geneva airport (GVA)
+				</div>
+			</section>
+
+			<section
+				data-background-iframe="http://env-3492183.jcloud.ik-server.com/exploringLargeMultivariateDatasetsGit/"
+				data-background-interactive data-background="#fff">
+				<div
+					style="position: absolute; width: 30%; right: -50; top:-250; box-shadow: 0 1px 4px rgba(241, 204, 204, 0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(183, 28, 28, 0.7); color: #fff; padding: 1em; font-size: 20px; text-align: left;">
+					<h3>Click on the filters!</h3>
+					<p>It's live! Interact with me!</p>
+				</div>
+			</section>
+
+
+
+			<section data-background-interactive data-background="#01579B" data-background-opacity="0.4">
+				<br clear="all">
+
+				<h2>Data visualisation</h2>
+				<div style="background-color: rgba(0, 0, 0, 0.6); color: #fff; padding: 20px;">
+					Storytelling abilities
+				</div>
+			</section>
+
+			<section data-background-iframe="http://env-3492183.jcloud.ik-server.com/wmByRegionsGit/"
+				data-background-interactive data-background="#fff">
+				<div
+					style="position: absolute; width: 30%; right: -50; top:-250; box-shadow: 0 1px 4px rgba(241, 204, 204, 0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(183, 28, 28, 0.7); color: #fff; padding: 1em; font-size: 20px; text-align: left;">
+					<h3>Click on the tabs!</h3>
+					<p>It's live! Interact with me!</p>
+				</div>
+			</section>
+
+
+
+			<section data-background-interactive data-background="#01579B" data-background-opacity="0.4">
+				<br clear="all">
+
+				<h2>marketing tool</h2>
+				<div style="background-color: rgba(0, 0, 0, 0.6); color: #fff; padding: 20px;">
+					Keeping track of your commercial action plans
+				</div>
+			</section>
+
+			<section data-background-video="videos/WM - Pulse! - launch video.mp4" data-background-transition="convex"
+				data-background-color="#000000" class="has-dark-background present"
+				style="top: 231.5px; display: block;">
+				<!--<div style="background-color: rgba(0, 0, 0, 0.6); color: #fff; padding: 20px;">
+						<h2>Pipe Management</h2>
+					</div>-->
+				<div
+					style="position: absolute; width: 30%; left: -250; top: -300; box-shadow: 0 1px 4px rgba(1,87,155, 0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(1,87,155, 0.7); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+					<p>Teaser video...</p>
+				</div>
+			</section>
+
+
+
+
+			<!--<section data-background-iframe="http://localhost/WM-pipe-public/pipe_actions_commerciales.php" data-background-interactive data-background="#fff">
+					<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(241, 204, 204, 0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(1, 87, 155, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+						<h2>Editing actions</h2>
+						<p>Try interacting with the page in the background.</p>
+					</div>
+				</section>				
+				
+				<section data-background-iframe="http://localhost/WM-pipe-public/analyseActions.php?year=2019" data-background-interactive data-background="#fff">
+					<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(241, 204, 204, 0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(183, 28, 28, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+						<h2>Tracking actions</h2>
+						<p>Storytelling, Empowering Relationship Managers through the use of self-analytics capabilities</p>
+					</div>
+				</section>		-->
+
+
+
+
+
+			<section id="title4"
+				data-background-video="videos/coverr-pool-is-life-1560977298458/coverr-pool-is-life-1560977298458.mp4"
+				type="video/webm" data-background-video-loop data-background-video-muted data-background-opacity="0.9">
+				<br clear="all">
+				<!--<div style="background-color: rgba(0, 0, 0, 0.6); color: #fff; padding: 20px;">-->
+				<h2>International marketing</h2>
+				<!--</div>-->
+				<div style="background-color: rgba(0, 0, 0, 0.6); color: #fff; padding: 20px;">
+					Regression analysis | Examining the relationship between GDP and room rates
+				</div>
+			</section>
+
+
+			<section data-background-iframe="http://env-3492183.jcloud.ik-server.com/roomRatesVsGdpGit/"
+				data-background-interactive data-background="#fff">
+				<div
+					style="position: absolute; width: 30%; right: -50; top:-250; box-shadow: 0 1px 4px rgba(241, 204, 204, 0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(183, 28, 28, 0.7); color: #fff; padding: 1em; font-size: 20px; text-align: left;">
+					<h3>Scroll down!</h3>
+					<p>It's live! Interact with me!</p>
+				</div>
+			</section>
+
+
+
+
+			<section id="title4" data-background-video="videos/Air-shuttle/Air-shuttle.mp4" type="video/webm"
+				data-background-video-loop data-background-video-muted data-background-opacity="0.9">
+				<br clear="all">
+				<!--<div style="background-color: rgba(0, 0, 0, 0.6); color: #fff; padding: 20px;">-->
+				<h2>Quantitative Methods and Models in Marketing</h2>
+				<!--</div>-->
+				<div style="background-color: rgba(0, 0, 0, 0.6); color: #fff; padding: 20px;">
+					Survey | Flight tickets
+				</div>
+			</section>
+
+			<section data-background-iframe="http://env-3492183.jcloud.ik-server.com/cbc/" data-background-interactive
+				data-background="#fff">
+				<div
+					style="position: absolute; width: 30%; right: -50; top:-250; box-shadow: 0 1px 4px rgba(241, 204, 204, 0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(183, 28, 28, 0.7); color: #fff; padding: 1em; font-size: 20px; text-align: left;">
+					<h3>Click on the tabs!</h3>
+					<p>It's live! Interact with me!</p>
+				</div>
+			</section>
+
+
+
+			<!--
+				<section id="title4" data-background-video="videos/Hotel Room/Hotel Room.mp4" type="video/webm" data-background-video-loop data-background-video-muted data-background-opacity="0.9">
+					<br clear="all">
+							<h2>Data Visualisation</h2>
+						<div style="background-color: rgba(0, 0, 0, 0.6); color: #fff; padding: 20px;">
+							BNP
+						</div>
+				</section>						
+
+				<section data-background-iframe="http://localhost/d3_dashboards/bubbles_d3_donald/#" data-background-interactive data-background="#fff">
+					<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(241, 204, 204, 0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(183, 28, 28, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+						<h2>Bubble charts</h2>
+						<p>To be completed...</p>
+					</div>
+				</section>				
+
+				
+
+				<section id="title4" data-background-video="videos/Hotel Room/Hotel Room.mp4" type="video/webm" data-background-video-loop data-background-video-muted data-background-opacity="0.9">
+					<br clear="all">
+							<h2>Content Management</h2>
+						<div style="background-color: rgba(0, 0, 0, 0.6); color: #fff; padding: 20px;">
+							IOC
+						</div>
+				</section>			
+
+
+
+				<section id="title4" data-background-video="videos/Hotel Room/Hotel Room.mp4" type="video/webm" data-background-video-loop data-background-video-muted data-background-opacity="0.9">
+					<br clear="all">
+						<div style="background-color: rgba(0, 0, 0, 0.6); color: #fff; padding: 20px;">
+							<h2>Marketing campaigns</h2>
+						</div>
+						<div style="background-color: rgba(0, 0, 0, 0.6); color: #fff; padding: 20px;">
+							IOC & O-I
+						</div>
+				</section>			-->
+
+
+
+			<!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+				<script type="text/javascript" src="js/correlation.js"></script>
+	
+				<section id="make_your_data_valuable" data-background="#01579B" data-background-opacity="0.8">
+						<h3>Room rates vs GDP per capita | Ibis and Four Seasons hotels</h3>
+						<h3>Ibis hotels</h3>
+						<div id="chartLinearIbisHotels" style="height: 350px; width: 50%"></div>
+						<h3>Four Seasons hotels</h3>
+						<div id="chartLinearFourSeasonsHotels" style="height: 350px; width: 50%"></div>
+					</section>		-->
+
+
+			<section id="make_your_data_valuable" data-background="#01579B" data-background-opacity="0.8">
+				<h3>Creating Business Value Through...</h3>
+				<ul class="fa-ul">
+					<li style="color:white; list-style: none"><span class="fa-li"><i
+								class="fas fa-chart-bar fa-xs"></i></span>automated reporting | storytelling | dataviz
+					</li>
+					<li style="color:white; list-style: none"><span class="fa-li"><i
+								class="fas fa-fist-raised fa-xs"></i></span>BI | self-service analytics |
+						self-empowerment</li>
+					<li style="color:white; list-style: none"><span class="fa-li"><i
+								class="fas fa-magic fa-xs"></i></span>innovative solutions | rapid prototyping | UX & UI
+					</li>
+					<li style="color:white; list-style: none"><span class="fa-li"><i
+								class="fas fa-mobile-alt fa-xs"></i></span>cross-platforms | mobile first design</li>
+					<li style="color:white; list-style: none"><span class="fa-li"><i
+								class="fas fa-shipping-fast fa-xs"></i></span>reduced time to market</li>
+					<li style="color:white; list-style: none"><span class="fa-li"><i
+								class="fas fa-spinner fa-pulse fa-xs"></i></span>lean and agile practices</li>
+				</ul>
+			</section>
+
+
+
+			<!-- ******************************-->
+			<!-- ********** SLIDE *************-->
+			<!-- ******************************-->
+			<section id="more_than_a_web_app" data-background="#01579B" data-background-transition="zoom"
+				data-background-opacity="0.8">
+				<h2>My portfolio&nbsp;&nbsp;&nbsp;<a href="docs/Portfolio2020.pdf" target="_blank"><i
+							class="fas fa-file-pdf fa-sm"></i></a></h2>
+				<br />
+				<h2>My resume&nbsp;&nbsp;&nbsp;<a href="docs/CV2020.pdf" target="_blank"><i
+							class="fas fa-file-pdf fa-sm"></i></a></h2>
+
+			</section>
+
+
+
+
+
+
+
+			<!--<section id="title3" data-background-video="videos/WM - Pulse! - launch video.mp4" type="video/webm" data-background-video-loop data-background-opacity="0.9">
+					</section>	-->
+
+
+
+
+
+
+			<!-- ******************************-->
+			<!-- ********** SLIDE THANK YOU **********-->
+			<!-- ******************************-->
+			<section id="the-end" data-background="#01579B" data-background-transition="zoom" data-background-opacity="0.8">
+				<br clear="all">
+				<div style="float:bottom;height:20%;padding-bottom:0px;text-align: left;">
+					<h2>Thank you for your time.</h2>
+					<br />
+					<h4><a target="_blank" style="color: #0e76a8"
+							href="https://www.linkedin.com/in/sebastienroh/">linkedin.com/in/sebastienroh</a></h4>
+					<!--<blockquote class="blockquote text-center">
+							<p class="mb-0">"To be completed"</p>
+						</blockquote>-->
+				</div>
+			</section>
+
+
+
+		</div>
+	</div>
+
+	<script src="reveal/lib/js/head.min.js"></script>
+	<script src="reveal/js/reveal.js"></script>
+
+	<script>
+		Reveal.initialize({
+			controls: true,
+			history: false,
+			progress: true,
+			loop: false,
+			mouseWheel: false,
+			rollingLinks: false,
+			center: true,
+			transition: 'convex', // none/fade/slide/convex/concave/zoom
+			hideAddressBar: true,
+			leap: {
+				naturalSwipe: false,    // Invert swipe gestures
+				pointerOpacity: 0.5,      // Set pointer opacity to 0.5
+				pointerColor: '#d80000' // Red pointer
+			},
+			dependencies: [{
+				src: 'lib/js/classList.js',
+				condition: function () {
+					return !document.body.classList;
+				}
+			}, {
+				src: 'reveal/plugin/markdown/marked.js',
+				condition: function () {
+					return !!document.querySelector('[data-markdown]');
+				}
+			}, {
+				src: 'reveal/plugin/markdown/markdown.js',
+				condition: function () {
+					return !!document.querySelector('[data-markdown]');
+				}
+			}, {
+				src: 'reveal/plugin/highlight/highlight.js',
+				async: true,
+				callback: function () {
+					hljs.initHighlightingOnLoad();
+				}
+			}, {
+				src: 'reveal/plugin/zoom-js/zoom.js',
+				async: true,
+				condition: function () {
+					return !!document.body.classList;
+				}
+			}, {
+				src: 'reveal/plugin/notes/notes.js',
+				async: true,
+				condition: function () {
+					return !!document.body.classList;
+				}
+			}]
+		});
+	</script>
+</body>
+
+</html>
