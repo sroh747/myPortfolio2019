@@ -20,3 +20,5 @@ jobs:
       #aws-region: <YOUR_AWS_REGION>
   - name: Sync files to S3
     run: aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET }} --exclude '.git*'
+
+    
