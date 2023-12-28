@@ -1,4 +1,4 @@
-name: Upload Website 5.0
+name: Upload Website 6.0
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
-  #workflow_dispatch:
+  workflow_dispatch:
 
 
 jobs:
