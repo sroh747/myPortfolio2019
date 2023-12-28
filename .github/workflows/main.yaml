@@ -28,5 +28,5 @@ jobs:
   
 
       - name: Sync files to S3 bucket
-        run: |
-          aws s3 sync s3://myPortfolio2019 --delete          
+        run:
+          aws s3 sync dist s3://myPortfolio2019 --delete
